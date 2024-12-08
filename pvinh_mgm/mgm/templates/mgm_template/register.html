@@ -1,0 +1,42 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+    <title>register</title>
+</head>
+<body>
+   
+        <div class="signin-container">
+
+            <h1>Register</h1>
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <input type="username" placeholder="Username" id="new Username" name="new Username" class="Username-field"><br>
+                <input type="password" placeholder="New password" id="new Password" name="new Password" class="Password-field" ><br>
+                <input type="password" placeholder="repeat password" id="repeat Password" name="repeat Password" class="Password-field" ><br>
+                <input type="email" placeholder="Email address" id="email" name="email" class="email-field" ><br>
+                {% if messages %}
+                    {% for message in messages %}
+                        <p style="color: red;">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+                <div class="Signup-button">
+                    <button class = "submit-btn" type="submit">Sign up</button> 
+                </div><br>
+                
+               
+                <div class="signin-view">
+                    <a href="/login">Already have account</a>
+                </div>
+
+                
+
+
+                
+            </form>
+        </div>
+    
+</body>
+</html>
